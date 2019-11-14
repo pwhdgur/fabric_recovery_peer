@@ -22,16 +22,16 @@ $ ./startFabric.sh
 - initLedger() : 10 sets of car record in the ledger
 
 1.3 Command : open peer nodes
-# for peer0.org1.example.com
+//# for peer0.org1.example.com
 $ docker exec -it cli bash
 
-# for peer1.org1.example.com
+//# for peer1.org1.example.com
 $ docker exec -it -e CORE_PEER_ADDRESS=peer1.org1.example.com:8051 -e CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/tls/ca.crt cli bash
 
-# for peer0.org2.example.com
+//# for peer0.org2.example.com
 $ docker exec -it -e CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp -e CORE_PEER_ADDRESS=peer0.org2.example.com:9051 -e CORE_PEER_LOCALMSPID="Org2MSP" -e CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt cli bash
 
-# for peer1.org2.example.com
+//# for peer1.org2.example.com
 $ docker exec -it -e CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp -e CORE_PEER_ADDRESS=peer1.org2.example.com:10051 -e CORE_PEER_LOCALMSPID="Org2MSP" -e CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/tls/ca.crt cli bash
 
 1.3.1 To verify things are working well ( ALL peer 안에서 )
@@ -90,7 +90,7 @@ http://localhost:7984/_utils/
 - peer0.org2.example.com가 mychannel에 연결이되면 원장이 노드에 "동기화" 됩니다.
 - 위 상황에 필요한 요소는 channel genesis block (mychannel.block) 입니다.
 - peer0.org2.example.com cli terminal로 들어가야함.
-# for peer0.org2.example.com (cli terminal)
+//# for peer0.org2.example.com (cli terminal)
 $ docker exec -it -e CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp -e CORE_PEER_ADDRESS=peer0.org2.example.com:9051 -e CORE_PEER_LOCALMSPID="Org2MSP" -e CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt cli bash
 
 $ peer channel join -b mychannel.block
