@@ -140,6 +140,7 @@ $ peer chaincode query -C mychannel -n fabcar -c '{"Args":["queryCar","CAR0"]}'
 - 필요한 체인 코드를이 피어에 다시 설치해야 쿼리 및 호출이 가능함.
 
 6. Clean Up
+
 $ cd first-network
 $ ./byfn.sh down
 $ docker rm $(docker ps -aq)
